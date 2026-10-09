@@ -1,0 +1,16 @@
+{
+  "scripts": {
+    "clean-ports": "node scripts/clean-ports.js",
+    "backend:dev": "npm --prefix backend run dev",
+    "blockchain:node": "npm --prefix blockchain run node",
+    "blockchain:deploy": "npm --prefix blockchain run deploy",
+    "frontend:dev": "npm --prefix frontend run dev",
+    "frontend:electron": "npm --prefix frontend run electron",
+    "verify:all": "node verify-all.js",
+    "verify:desktop": "node verify-desktop.js",
+    "build:desktop": "node build-desktop-pipeline.js"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2"
+  }
+}

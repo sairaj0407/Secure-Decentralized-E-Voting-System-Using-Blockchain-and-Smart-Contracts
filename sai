@@ -1,0 +1,293 @@
+cd "D:\Secure Decentralized E-Voting System Using Blockchain and Smart Contracts\backend"
+npm run dev
+
+cd "D:\Secure Decentralized E-Voting System Using Blockchain and Smart Contracts\blockchain"
+npx hardhat node   
+
+
+cd "D:\Secure Decentralized E-Voting System Using Blockchain and Smart Contracts\frontend"
+npm run dev
+
+
+cd "D:\Secure Decentralized E-Voting System Using Blockchain and Smart Contracts\blockchain"
+npx hardhat run scripts/deploy.ts --network localhost
+
+
+1. Administrative Login (Admin Panel)
+Email: ECI@gmail.com
+Password: GovOfIndia
+Role: ADMIN
+2. Voter Logins (Voter Portal)
+All seeded test voters use the same password.
+
+
+cd "D:\Secure Decentralized E-Voting System Using Blockchain and Smart Contracts\frontend"
+npm run electron
+
+
+Voter 1:
+
+Email: voter@test.com
+Password: Voter@12345
+Voter ID: VOTER001
+Registered Wallet Address: 0x70997970c51812dc3a010c7d01b50e0d17dc79c8 (Hardhat Account #1)
+Voter 2:
+
+Email: voter2@test.com
+Password: Voter@12345
+Voter ID: VOTER002
+Registered Wallet Address: 0x3c44cdddb6a900fa2b585dd299e03d12fa4293bc (Hardhat Account #2)
+Voter 3:
+
+Email: voter3@test.com
+Password: Voter@12345
+Voter ID: VOTER003
+Registered Wallet Address: 0x90f79bf6eb2c4f870365e785982e1f101e93b906 (Hardhat Account #3)
+
+
+
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIyIiwicm9sZSI6IkFETUlOIiwiZW1haWwiOiJhZG1pbkBldm90aW5nLmxvY2FsIiwiaWF0IjoxNzg2NjM4MDQ1LCJleHAiOjE3ODY2NDUyNDV9.-3mlXaqadzmufnIb3lzGpDywvda_PO44dfpOs4smrLo
+
+
+
+====================================
+EVoting Contract Deployed
+====================================
+Contract Address: 0x5FbDB2315678afecb367f032d93F642f64180aa3
+Admin Address: 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266
+
+
+
+
+Network:          Hardhat Localhost
+RPC:              http://127.0.0.1:8545
+Chain:            Local development blockchain
+
+Contract:
+EVoting
+Address:
+0x5FbDB2315678afecb367f032d93F642f64180aa3
+
+Admin:
+0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266
+
+
+
+BLOCKCHAIN_RPC_URL=http://127.0.0.1:8545
+
+EVOTING_CONTRACT_ADDRESS=0x5FbDB2315678afecb367f032d93F642f64180aa3
+
+BLOCKCHAIN_ADMIN_PRIVATE_KEY=0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80
+
+
+
+
+
+Invoke-RestMethod `
+  -Uri "http://localhost:5000/api/elections/6/start" `
+  -Method PATCH `
+  -Headers @{
+    Authorization = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIyIiwicm9sZSI6IkFETUlOIiwiZW1haWwiOiJhZG1pbkBldm90aW5nLmxvY2FsIiwiaWF0IjoxNzg2NzA2MDgwLCJleHAiOjE3ODY3MTMyODB9.C-uq7ApjT5EK-haDWiEZcjDiTp0HXHwp4ubMPO5vQnI"
+  }
+
+
+$token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIyIiwicm9sZSI6IkFETUlOIiwiZW1haWwiOiJhZG1pbkBldm90aW5nLmxvY2FsIiwiaWF0IjoxNzg2NzA2MDgwLCJleHAiOjE3ODY3MTMyODB9.C-uq7ApjT5EK-haDWiEZcjDiTp0HXHwp4ubMPO5vQnI"
+
+Invoke-RestMethod `
+  -Uri "http://localhost:5000/api/elections/6/end" `
+  -Method PATCH `
+  -Headers @{
+    Authorization = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIyIiwicm9sZSI6IkFETUlOIiwiZW1haWwiOiJhZG1pbkBldm90aW5nLmxvY2FsIiwiaWF0IjoxNzg2NzA2MDgwLCJleHAiOjE3ODY3MTMyODB9.C-uq7ApjT5EK-haDWiEZcjDiTp0HXHwp4ubMPO5vQnI"
+  }
+
+
+$token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIyIiwicm9sZSI6IkFETUlOIiwiZW1haWwiOiJhZG1pbkBldm90aW5nLmxvY2FsIiwiaWF0IjoxNzg2NzA2MDgwLCJleHAiOjE3ODY3MTMyODB9.C-uq7ApjT5EK-haDWiEZcjDiTp0HXHwp4ubMPO5vQnI"
+
+Invoke-RestMethod `
+  -Uri "http://localhost:5000/api/elections/6/publish-results" `
+  -Method PATCH `
+  -Headers @{
+    Authorization = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIyIiwicm9sZSI6IkFETUlOIiwiZW1haWwiOiJhZG1pbkBldm90aW5nLmxvY2FsIiwiaWF0IjoxNzg2NzA2MDgwLCJleHAiOjE3ODY3MTMyODB9.C-uq7ApjT5EK-haDWiEZcjDiTp0HXHwp4ubMPO5vQnI"
+  }
+
+
+
+
+  $token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIyIiwicm9sZSI6IkFETUlOIiwiZW1haWwiOiJhZG1pbkBldm90aW5nLmxvY2FsIiwiaWF0IjoxNzg2NzA2MDgwLCJleHAiOjE3ODY3MTMyODB9.C-uq7ApjT5EK-haDWiEZcjDiTp0HXHwp4ubMPO5vQnI"
+
+Invoke-RestMethod `
+  -Uri "http://localhost:5000/api/elections/6/results" `
+  -Method GET `
+  -Headers @{
+    Authorization = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIyIiwicm9sZSI6IkFETUlOIiwiZW1haWwiOiJhZG1pbkBldm90aW5nLmxvY2FsIiwiaWF0IjoxNzg2NzA2MDgwLCJleHAiOjE3ODY3MTMyODB9.C-uq7ApjT5EK-haDWiEZcjDiTp0HXHwp4ubMPO5vQnI"
+  }
+
+
+$token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIyIiwicm9sZSI6IkFETUlOIiwiZW1haWwiOiJhZG1pbkBldm90aW5nLmxvY2FsIiwiaWF0IjoxNzg2NzA2MDgwLCJleHAiOjE3ODY3MTMyODB9.C-uq7ApjT5EK-haDWiEZcjDiTp0HXHwp4ubMPO5vQnI"
+
+$body = @{
+    title = "Blockchain Voting Test 2026"
+    description = "Fresh end-to-end blockchain voting test election"
+    startTime = "2026-08-14T10:00:00"
+    endTime = "2026-08-14T18:00:00"
+} | ConvertTo-Json
+
+Invoke-RestMethod `
+  -Uri "http://localhost:5000/api/elections" `
+  -Method POST `
+  -Headers @{
+      Authorization = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIyIiwicm9sZSI6IkFETUlOIiwiZW1haWwiOiJhZG1pbkBldm90aW5nLmxvY2FsIiwiaWF0IjoxNzg2NzA2MDgwLCJleHAiOjE3ODY3MTMyODB9.C-uq7ApjT5EK-haDWiEZcjDiTp0HXHwp4ubMPO5vQnI"
+  } `
+  -ContentType "application/json" `
+  -Body $body
+
+
+  # ============================================
+# ADMIN TOKEN
+# ============================================
+
+$token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIyIiwicm9sZSI6IkFETUlOIiwiZW1haWwiOiJhZG1pbkBldm90aW5nLmxvY2FsIiwiaWF0IjoxNzg2NzA2MDgwLCJleHAiOjE3ODY3MTMyODB9.C-uq7ApjT5EK-haDWiEZcjDiTp0HXHwp4ubMPO5vQnI"
+
+# ============================================
+# CREATE FRESH BLOCKCHAIN TEST ELECTION
+# ============================================
+
+$body = @{
+    title = "Blockchain Voting Test 2026"
+    description = "Fresh end-to-end blockchain voting test election"
+    startTime = "2026-08-15T10:00:00"
+    endTime = "2026-08-15T18:00:00"
+} | ConvertTo-Json
+
+$response = Invoke-RestMethod `
+    -Uri "http://localhost:5000/api/elections" `
+    -Method POST `
+    -Headers @{
+        Authorization = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIyIiwicm9sZSI6IkFETUlOIiwiZW1haWwiOiJhZG1pbkBldm90aW5nLmxvY2FsIiwiaWF0IjoxNzg2NzA2MDgwLCJleHAiOjE3ODY3MTMyODB9.C-uq7ApjT5EK-haDWiEZcjDiTp0HXHwp4ubMPO5vQnI"
+    } `
+    -ContentType "application/json" `
+    -Body $body
+
+$response | ConvertTo-Json -Depth 10
+
+
+
+
+
+# ============================================
+# LOGIN + CREATE FRESH BLOCKCHAIN ELECTION
+# ============================================
+
+$loginBody = @{
+    email = "admin@evoting.local"
+    password = "Admin@12345"
+} | ConvertTo-Json
+
+# Login and automatically get a fresh JWT
+$loginResponse = Invoke-RestMethod `
+    -Uri "http://localhost:5000/api/auth/login" `
+    -Method POST `
+    -ContentType "application/json" `
+    -Body $loginBody
+
+$token = $loginResponse.token
+
+Write-Host "`n============================================"
+Write-Host "ADMIN LOGIN SUCCESSFUL"
+Write-Host "============================================`n"
+
+Write-Host "Admin:"
+Write-Host $loginResponse.user.email
+Write-Host "Role:"
+Write-Host $loginResponse.user.role
+
+# ============================================
+# CREATE FRESH ELECTION
+# ============================================
+
+$body = @{
+    title = "Blockchain Voting Test 2026"
+    description = "Fresh end-to-end blockchain voting test election"
+    startTime = "2026-08-15T10:00:00"
+    endTime = "2026-08-15T18:00:00"
+} | ConvertTo-Json
+
+$response = Invoke-RestMethod `
+    -Uri "http://localhost:5000/api/elections" `
+    -Method POST `
+    -Headers @{
+        Authorization = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIyIiwicm9sZSI6IkFETUlOIiwiZW1haWwiOiJhZG1pbkBldm90aW5nLmxvY2FsIiwiaWF0IjoxNzg2NzA2MDgwLCJleHAiOjE3ODY3MTMyODB9.C-uq7ApjT5EK-haDWiEZcjDiTp0HXHwp4ubMPO5vQnI"
+    } `
+    -ContentType "application/json" `
+    -Body $body
+
+Write-Host "`n============================================"
+Write-Host "ELECTION CREATION RESPONSE"
+Write-Host "============================================`n"
+
+$response | ConvertTo-Json -Depth 10
+
+
+
+$body = @{
+    electionId = 9
+    name = "Aarav Sharma"
+    party = "Progressive Students Group"
+    symbol = "STAR"
+    manifesto = "Better student facilities, transparent administration, and improved campus activities."
+} | ConvertTo-Json
+
+$response = Invoke-RestMethod `
+    -Uri "http://localhost:5000/api/candidates" `
+    -Method POST `
+    -Headers @{
+        Authorization = "Bearer $token"
+    } `
+    -ContentType "application/json" `
+    -Body $body
+
+$response | ConvertTo-Json -Depth 10
+
+
+
+
+
+$voteBody = @{
+    electionId = 9
+    candidateId = 6
+} | ConvertTo-Json
+
+$response = Invoke-RestMethod `
+    -Uri "http://localhost:5000/api/votes" `
+    -Method POST `
+    -Headers @{
+        Authorization = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIyIiwicm9sZSI6IkFETUlOIiwiZW1haWwiOiJhZG1pbkBldm90aW5nLmxvY2FsIiwiaWF0IjoxNzg2NzA2MDgwLCJleHAiOjE3ODY3MTMyODB9.C-uq7ApjT5EK-haDWiEZcjDiTp0HXHwp4ubMPO5vQnI"
+    } `
+    -ContentType "application/json" `
+    -Body $voteBody
+
+$response | ConvertTo-Json -Depth 10
+
+
+
+
+$loginBody = @{
+    email = "admin@voting.local"
+    password = "Admin@12345"
+} | ConvertTo-Json
+
+$loginResponse = Invoke-RestMethod `
+    -Uri "http://localhost:5000/api/auth/login" `
+    -Method POST `
+    -ContentType "application/json" `
+    -Body $loginBody
+
+$voterToken = $loginResponse.token
+
+Write-Host "`n========== VOTER LOGIN =========="
+Write-Host "Name: $($loginResponse.user.name)"
+Write-Host "Role: $($loginResponse.user.role)"
+Write-Host "Wallet: $($loginResponse.user.walletAddress)"
+Write-Host "==================================`n"
+
+

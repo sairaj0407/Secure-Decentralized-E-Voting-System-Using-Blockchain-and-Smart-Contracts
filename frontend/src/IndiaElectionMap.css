@@ -1,0 +1,519 @@
+/* ==========================================================================
+   ELECTION COMMISSION OF INDIA — NATIONAL ELECTORAL MAP
+   Normal Clean Layout & Official ECI Institutional Colors
+   ========================================================================== */
+
+.eci-map-container {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+
+/* 1. Official ECI Header */
+.eci-map-header {
+  background: #0f294a; /* Official ECI Deep Navy */
+  color: #ffffff;
+  padding: 14px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 3px solid #ea580c; /* Official ECI Saffron Accent */
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.eci-map-title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.eci-map-title-row h2 {
+  margin: 0;
+  font-size: 14.5px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  color: #ffffff;
+}
+
+.eci-map-title-row p {
+  margin: 2px 0 0;
+  font-size: 11px;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+/* Quick Stats on Header */
+.eci-map-quick-stats {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.eci-quick-stat {
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 4px 10px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.eci-quick-stat span {
+  font-size: 9px;
+  color: #93c5fd;
+  text-transform: uppercase;
+}
+
+.eci-quick-stat strong {
+  font-size: 12.5px;
+  color: #ffffff;
+  font-weight: 800;
+}
+
+.eci-refresh-icon-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 6px 9px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: background 0.15s ease;
+}
+
+.eci-refresh-icon-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* 2. Normal Toolbar */
+.eci-map-toolbar {
+  background: #f8fafc;
+  padding: 10px 20px;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.eci-view-tabs {
+  display: flex;
+  background: #e2e8f0;
+  padding: 2px;
+  border-radius: 4px;
+  gap: 2px;
+}
+
+.eci-tab-btn {
+  border: none;
+  background: transparent;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #475569;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.eci-tab-btn.active {
+  background: #1e3a8a; /* ECI Navy */
+  color: #ffffff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.eci-select-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.eci-select-wrapper label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #334155;
+}
+
+.eci-state-dropdown {
+  padding: 6px 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #0f172a;
+  background: #ffffff;
+  font-weight: 600;
+  outline: none;
+  cursor: pointer;
+}
+
+.eci-state-dropdown:focus {
+  border-color: #1e3a8a;
+}
+
+/* 3. Normal Two-Column Layout */
+.eci-map-body {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  min-height: 560px;
+}
+
+@media (max-width: 960px) {
+  .eci-map-body {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Left Column: Clean Map Canvas */
+.eci-map-canvas-card {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid #e2e8f0;
+  background: #ffffff;
+}
+
+.eci-india-map-svg {
+  width: 100%;
+  max-width: 540px;
+  height: auto;
+}
+
+/* Clean State Path Styling - Official Survey of India Standard */
+.eci-state-area {
+  cursor: pointer;
+  stroke: #ffffff;
+  stroke-width: 0.9px;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  transition: fill 0.15s ease, stroke 0.15s ease;
+}
+
+.eci-state-area:hover {
+  stroke: #0f172a;
+  stroke-width: 1.8px;
+}
+
+.eci-state-area.selected {
+  stroke: #ea580c; /* Official ECI Saffron */
+  stroke-width: 2.4px;
+}
+
+/* Clean Legend */
+.eci-normal-legend {
+  margin-top: 14px;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  background: #f8fafc;
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: 1px solid #e2e8f0;
+}
+
+.eci-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: #475569;
+  font-weight: 600;
+}
+
+.eci-color-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+}
+
+/* Right Column: Normal State Dossier Card */
+.eci-state-dossier-card {
+  padding: 20px;
+  background: #f8fafc;
+  display: flex;
+  flex-direction: column;
+}
+
+.eci-state-content {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+}
+
+.eci-state-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 10px;
+}
+
+.eci-state-header h3 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 800;
+  color: #1e3a8a;
+}
+
+.eci-state-header span {
+  font-size: 11.5px;
+  color: #64748b;
+  display: block;
+  margin-top: 2px;
+}
+
+/* Status Tag */
+.eci-status-tag {
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.eci-status-tag.active {
+  background: #dcfce7;
+  color: #15803d;
+  border: 1px solid #86efac;
+}
+
+.eci-status-tag.upcoming {
+  background: #ffedd5;
+  color: #c2410c;
+  border: 1px solid #fed7aa;
+}
+
+.eci-status-tag.results_published {
+  background: #dbeafe;
+  color: #1e40af;
+  border: 1px solid #bfdbfe;
+}
+
+.eci-status-tag.no_scheduled_polls {
+  background: #f1f5f9;
+  color: #475569;
+  border: 1px solid #cbd5e1;
+}
+
+/* Stats Grid */
+.eci-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.eci-stat-box {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 8px 10px;
+  border-radius: 4px;
+}
+
+.eci-stat-box small {
+  display: block;
+  font-size: 10px;
+  color: #64748b;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.eci-stat-box strong {
+  font-size: 14px;
+  color: #0f172a;
+  font-weight: 800;
+  margin-top: 2px;
+  display: block;
+}
+
+/* Turnout Section */
+.eci-turnout-section {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 10px 12px;
+  border-radius: 4px;
+}
+
+.eci-turnout-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 5px;
+}
+
+.eci-turnout-bg {
+  height: 7px;
+  background: #e2e8f0;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.eci-turnout-fill {
+  height: 100%;
+  background: #16a34a; /* ECI Green */
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+/* Leading Party Card */
+.eci-leading-party {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  padding: 10px 12px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.eci-leading-party small {
+  font-size: 9.5px;
+  color: #1e40af;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: block;
+}
+
+.eci-leading-party strong {
+  font-size: 13px;
+  color: #1e3a8a;
+  font-weight: 800;
+}
+
+.eci-leading-party span {
+  font-size: 11px;
+  color: #475569;
+  display: block;
+}
+
+/* Scheduled Elections */
+.eci-elections-block h4 {
+  margin: 0 0 8px;
+  font-size: 11.5px;
+  color: #0f172a;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.eci-elections-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.eci-election-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 10px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  font-size: 11.5px;
+}
+
+.eci-election-row strong {
+  color: #1e3a8a;
+  display: block;
+}
+
+.eci-election-row span {
+  font-size: 10.5px;
+  color: #64748b;
+}
+
+.eci-view-btn {
+  background: #1e3a8a;
+  color: #ffffff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  white-space: nowrap;
+}
+
+.eci-view-btn:hover {
+  background: #1e40af;
+}
+
+.eci-no-elections {
+  padding: 12px;
+  background: #f8fafc;
+  border: 1px dashed #cbd5e1;
+  border-radius: 4px;
+  text-align: center;
+  color: #64748b;
+  font-size: 11.5px;
+  margin: 0;
+}
+
+.eci-state-empty {
+  padding: 40px 20px;
+  text-align: center;
+  color: #64748b;
+}
+
+.eci-state-empty h4 {
+  margin: 10px 0 4px;
+  color: #1e3a8a;
+}
+
+.eci-state-empty p {
+  font-size: 11.5px;
+  margin: 0;
+}
+
+/* Tooltip */
+.eci-map-tooltip {
+  position: fixed;
+  background: #0f172a;
+  color: #ffffff;
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid #ea580c;
+  pointer-events: none;
+  font-size: 11px;
+  z-index: 99999;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  max-width: 200px;
+  transform: translate(12px, 12px);
+}
+
+.eci-map-tooltip strong {
+  display: block;
+  border-bottom: 1px solid #334155;
+  padding-bottom: 4px;
+  margin-bottom: 4px;
+  font-size: 12px;
+}
+
+.eci-tooltip-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 2px;
+  color: #cbd5e1;
+}

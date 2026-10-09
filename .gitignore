@@ -1,0 +1,39 @@
+# Dependencies
+node_modules/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Build files
+dist/
+build/
+
+# Hardhat
+cache/
+artifacts/
+
+# Logs
+*.log
+
+# Coverage
+coverage/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/
+
+# Temporary files
+*.tmp
+*.temp
+# Desktop Binaries and Packaging Output
+dist-desktop/
+frontend/dist-desktop/
+*.exe
+win-unpacked/
+scratch/
+

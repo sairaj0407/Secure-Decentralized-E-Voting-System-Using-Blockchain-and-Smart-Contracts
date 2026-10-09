@@ -1,0 +1,58 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: evoting_db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: evoting
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./database/schema.sql:/docker-entrypoint-initdb.d/1-schema.sql
+      - ./database/seed.sql:/docker-entrypoint-initdb.d/2-seed.sql
+    restart: unless-stopped
+
+  blockchain:
+    image: node:20-alpine
+    container_name: evoting_blockchain
+    working_dir: /app
+    ports:
+      - "8545:8545"
+    volumes:
+      - ./blockchain:/app
+    command: sh -c "npm install && npx hardhat node"
+    restart: unless-stopped
+
+  backend:
+    build: ./backend
+    container_name: evoting_backend
+    ports:
+      - "5000:5000"
+    environment:
+      - PORT=5000
+      - DB_USER=postgres
+      - DB_PASSWORD=password
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_NAME=evoting
+      - BLOCKCHAIN_RPC_URL=http://blockchain:8545
+      - JWT_SECRET=test_jwt_secret_key_2026_xyz
+      - EVOTING_CONTRACT_ADDRESS=0x5FbDB2315678afecb367f032d93F642f64180aa3
+      - BLOCKCHAIN_ADMIN_PRIVATE_KEY=0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80
+      - TEST_VOTER_PRIVATE_KEY=0x59c6995e998f97a5a0044966f0945389dc9e86dae88c7a8412f4603b6b78690d
+    depends_on:
+      - db
+      - blockchain
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    container_name: evoting_frontend
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+    restart: unless-stopped
